@@ -5,6 +5,13 @@ import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
+
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -50,6 +57,7 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name='index' options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
