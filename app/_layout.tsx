@@ -55,12 +55,16 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal',headerShown: false }} />
         <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen name='WelcomScreen' options={{ headerShown: false }} />
         <Stack.Screen name='(account)/Account' options={{ headerShown: false }} />
-        <Stack.Screen name='(qr)/Qr' />
-        <Stack.Screen name='Notifycations' />
+        <Stack.Screen name='(qr)/Qr' options={{ headerShown: false }} />
+        <Stack.Screen name='Notifycations' options={{ headerShown: false }} />
+        <Stack.Screen name='(cards)/Cards' options={{ headerShown: false }} />
+        <Stack.Screen name='(transfer)/Transfers' options={{ headerShown: false }} />
+        <Stack.Screen name='(deposit)/Deposites' options={{ headerShown: false }} />
+        <Stack.Screen name='(withdraw)/Withdraws' options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

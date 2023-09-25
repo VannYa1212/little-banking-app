@@ -8,6 +8,7 @@ import {
   ScrollView,
   Dimensions,
   StyleSheet,
+  RefreshControl,
 } from "react-native";
 import React, { useCallback, useMemo, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -103,87 +104,25 @@ const Account = () => {
             }}
           >
             <View className="px-4 h-full bg-[#1C274C] py-2 rounded-xl w-full">
-              <ScrollView className="py-2" showsVerticalScrollIndicator={false}>
-                <Pressable onPress={handlePresentModalPress} className="flex py-2 flex-row justify-between items-center">
-                  <View className="flex flex-row space-x-1 items-center">
-                    <Image
-                      source={require("../../assets/images/in.png")}
-                      className="w-8 h-8"
-                    />
-                    <Text className="text-white text-lg">Van Soriya</Text>
-                  </View>
-                  <View>
-                    <Text className=" text-lg text-[#58CC5C]">
-                      +{"20 USD"}{" "}
-                    </Text>
-                  </View>
-                </Pressable>
+              <ScrollView
+                className="py-2"
+                showsVerticalScrollIndicator={false}
+                scrollEnabled={true}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={false}
+                    onRefresh={() => {
+                      console.log("refreshing");
+                    }}
+                    colors={["#fff"]}
+                    progressBackgroundColor="#1C274C"
+                  />
+                }
+              >
                 <Pressable
                   onPress={handlePresentModalPress}
-                  className="flex  py-2 flex-row justify-between items-center"
+                  className="flex py-2 flex-row justify-between items-center"
                 >
-                  <View className="flex flex-row space-x-1 items-center">
-                    <Image
-                      source={require("../../assets/images/out.png")}
-                      className="w-8 h-8"
-                    />
-                    <Text className="text-white text-lg">Van Soriya</Text>
-                  </View>
-                  <View>
-                    <Text className=" text-lg text-[#DB2B2B]">
-                      -{"20 USD"}{" "}
-                    </Text>
-                  </View>
-                </Pressable>
-                <Pressable onPress={handlePresentModalPress} className="flex py-2 flex-row justify-between items-center">
-                  <View className="flex flex-row space-x-1 items-center">
-                    <Image
-                      source={require("../../assets/images/in.png")}
-                      className="w-8 h-8"
-                    />
-                    <Text className="text-white text-lg">Van Soriya</Text>
-                  </View>
-                  <View>
-                    <Text className=" text-lg text-[#58CC5C]">
-                      +{"20 USD"}{" "}
-                    </Text>
-                  </View>
-                </Pressable>
-                <Pressable
-                  onPress={handlePresentModalPress}
-                  className="flex  py-2 flex-row justify-between items-center"
-                >
-                  <View className="flex flex-row space-x-1 items-center">
-                    <Image
-                      source={require("../../assets/images/out.png")}
-                      className="w-8 h-8"
-                    />
-                    <Text className="text-white text-lg">Van Soriya</Text>
-                  </View>
-                  <View>
-                    <Text className=" text-lg text-[#DB2B2B]">
-                      -{"20 USD"}{" "}
-                    </Text>
-                  </View>
-                </Pressable>
-                <Pressable
-                  onPress={handlePresentModalPress}
-                  className="flex  py-2 flex-row justify-between items-center"
-                >
-                  <View className="flex flex-row space-x-1 items-center">
-                    <Image
-                      source={require("../../assets/images/out.png")}
-                      className="w-8 h-8"
-                    />
-                    <Text className="text-white text-lg">Van Soriya</Text>
-                  </View>
-                  <View>
-                    <Text className=" text-lg text-[#DB2B2B]">
-                      -{"20 USD"}{" "}
-                    </Text>
-                  </View>
-                </Pressable>
-                <Pressable onPress={handlePresentModalPress} className="flex py-2 flex-row justify-between items-center">
                   <View className="flex flex-row space-x-1 items-center">
                     <Image
                       source={require("../../assets/images/in.png")}
@@ -216,6 +155,23 @@ const Account = () => {
                 </Pressable>
                 <Pressable
                   onPress={handlePresentModalPress}
+                  className="flex py-2 flex-row justify-between items-center"
+                >
+                  <View className="flex flex-row space-x-1 items-center">
+                    <Image
+                      source={require("../../assets/images/in.png")}
+                      className="w-8 h-8"
+                    />
+                    <Text className="text-white text-lg">Van Soriya</Text>
+                  </View>
+                  <View>
+                    <Text className=" text-lg text-[#58CC5C]">
+                      +{"20 USD"}{" "}
+                    </Text>
+                  </View>
+                </Pressable>
+                <Pressable
+                  onPress={handlePresentModalPress}
                   className="flex  py-2 flex-row justify-between items-center"
                 >
                   <View className="flex flex-row space-x-1 items-center">
@@ -231,7 +187,78 @@ const Account = () => {
                     </Text>
                   </View>
                 </Pressable>
-                <Pressable onPress={handlePresentModalPress} className="flex py-2 flex-row justify-between items-center">
+                <Pressable
+                  onPress={handlePresentModalPress}
+                  className="flex  py-2 flex-row justify-between items-center"
+                >
+                  <View className="flex flex-row space-x-1 items-center">
+                    <Image
+                      source={require("../../assets/images/out.png")}
+                      className="w-8 h-8"
+                    />
+                    <Text className="text-white text-lg">Van Soriya</Text>
+                  </View>
+                  <View>
+                    <Text className=" text-lg text-[#DB2B2B]">
+                      -{"20 USD"}{" "}
+                    </Text>
+                  </View>
+                </Pressable>
+                <Pressable
+                  onPress={handlePresentModalPress}
+                  className="flex py-2 flex-row justify-between items-center"
+                >
+                  <View className="flex flex-row space-x-1 items-center">
+                    <Image
+                      source={require("../../assets/images/in.png")}
+                      className="w-8 h-8"
+                    />
+                    <Text className="text-white text-lg">Van Soriya</Text>
+                  </View>
+                  <View>
+                    <Text className=" text-lg text-[#58CC5C]">
+                      +{"20 USD"}{" "}
+                    </Text>
+                  </View>
+                </Pressable>
+                <Pressable
+                  onPress={handlePresentModalPress}
+                  className="flex  py-2 flex-row justify-between items-center"
+                >
+                  <View className="flex flex-row space-x-1 items-center">
+                    <Image
+                      source={require("../../assets/images/out.png")}
+                      className="w-8 h-8"
+                    />
+                    <Text className="text-white text-lg">Van Soriya</Text>
+                  </View>
+                  <View>
+                    <Text className=" text-lg text-[#DB2B2B]">
+                      -{"20 USD"}{" "}
+                    </Text>
+                  </View>
+                </Pressable>
+                <Pressable
+                  onPress={handlePresentModalPress}
+                  className="flex  py-2 flex-row justify-between items-center"
+                >
+                  <View className="flex flex-row space-x-1 items-center">
+                    <Image
+                      source={require("../../assets/images/out.png")}
+                      className="w-8 h-8"
+                    />
+                    <Text className="text-white text-lg">Van Soriya</Text>
+                  </View>
+                  <View>
+                    <Text className=" text-lg text-[#DB2B2B]">
+                      -{"20 USD"}{" "}
+                    </Text>
+                  </View>
+                </Pressable>
+                <Pressable
+                  onPress={handlePresentModalPress}
+                  className="flex py-2 flex-row justify-between items-center"
+                >
                   <View className="flex flex-row space-x-1 items-center">
                     <Image
                       source={require("../../assets/images/in.png")}
