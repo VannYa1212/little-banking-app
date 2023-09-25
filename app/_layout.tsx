@@ -4,7 +4,6 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
-
 import { NativeWindStyleSheet } from "nativewind";
 
 NativeWindStyleSheet.setOutput({
@@ -19,7 +18,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: 'index',
+  initialRouteName: '/Onboards',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.

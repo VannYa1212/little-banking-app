@@ -140,7 +140,7 @@ const index = () => {
           >
             <Text className="text-white text-4xl font-normal">$</Text>
             {showwallet ? (
-              <Text className="text-white text-4xl font-bold">5,000.00</Text>
+              <Text className="text-white text-4xl font-bold">5.00</Text>
             ) : (
               <View className="h-full w-32 bg-gray-50/50  rounded-xl"></View>
             )}
