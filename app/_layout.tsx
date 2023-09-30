@@ -64,6 +64,8 @@ function RootLayoutNav() {
         <Stack.Screen name='(transfer)/Transfers' options={{ headerShown: false }} />
         <Stack.Screen name='(deposit)/Deposites' options={{ headerShown: false }} />
         <Stack.Screen name='(withdraw)/Withdraws' options={{ headerShown: false }} />
+
+        <Stack.Screen name='Onboards' options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );

@@ -57,7 +57,7 @@ export default function ModalScreen() {
       </SafeAreaView>
       <View className="h-[70%] rounded-t-2xl bg-[#1C274C] flex flex-col space-y-2 px-5 pt-5">
         {[1,2,3,4,5].map((item,index) => (
-        <Pressable key={index} className="bg-[#293765] py-2 px-3 rounded-xl flex flex-row  items-center justify-between">
+        <Pressable key={index} onPress={()=>router.push("/Onboards")} className="bg-[#293765] py-2 px-3 rounded-xl flex flex-row  items-center justify-between">
           <View className="bg-transparent flex flex-row space-x-1 items-center">
             <Image
               source={require("../assets/images/Account.png")}
