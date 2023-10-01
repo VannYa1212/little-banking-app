@@ -12,7 +12,6 @@ import LottieView from "lottie-react-native";
 const { width, height } = Dimensions.get("window");
 import { useRouter } from "expo-router";
 import { BlurView } from "expo-blur";
-import { Ionicons } from "@expo/vector-icons";
 
 const Onboards = () => {
   const router = useRouter();
@@ -37,7 +36,10 @@ const Onboards = () => {
     </View>
   );
   const Done = ({ ...props }) => (
-    <Pressable onPress={()=>router.push('/WelcomScreen')} className="flex-row items-center justify-center bg-white mb-2  rounded-l-full ">
+    <Pressable
+      onPress={() => router.push("/WelcomScreen")}
+      className="flex-row items-center justify-center bg-white mb-2  rounded-l-full "
+    >
       <Text
         className="text-black mx-4 py-2 text-center text-lg font-semibold"
         {...props}
@@ -70,8 +72,14 @@ const Onboards = () => {
     <View className="flex-1">
       {/* Header */}
       <View className=" top-8 z-10 bg-slate-50 my-8 flex w-full   flex-row items-center bg-transparent justify-center absolute px-5">
-        <Image source={require("../assets/images/logo.png")} className="w-[213] h-[42]" />
-        <Pressable className="absolute right-5">
+        <Image
+          source={require("../assets/images/logo.png")}
+          className="w-[213] h-[42]"
+        />
+        <Pressable
+          onPress={() => router.push("/WelcomScreen")}
+          className="absolute right-5"
+        >
           <Text className="text-white text-lg font-medium">Skip</Text>
         </Pressable>
       </View>
@@ -94,7 +102,7 @@ const Onboards = () => {
             width: "100%",
             height: "100%",
           }}
-        ></BlurView>
+        />
       </View>
       <View className="w-full h-full">
         <Onboarding

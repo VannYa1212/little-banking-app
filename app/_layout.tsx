@@ -1,15 +1,16 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
-import { useEffect } from 'react';
+import { SplashScreen, Stack,useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 import { NativeWindStyleSheet } from "nativewind";
-
+import { setItem , getItem } from '../libs/storage';
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
+// setitem token to storage
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -50,13 +51,33 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const [isDark, setIsDark] = useState(false);
+  const [token, setToken] = useState(false);
+  const router = useRouter();
+  // check if user not token in storage push to login
+
+  //  sync storage if user not token push to login
+  useEffect(() => {
+    getItem("token").then((res) => {
+      if (!res) {
+        router.push("/WelcomScreen");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    if (colorScheme === 'dark') {
+      setIsDark(true)
+    } else {
+      setIsDark(false)
+    }
+  }, [colorScheme])
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="modal" options={{ presentation: 'modal',headerShown: false }} />
+        <Stack.Screen name="modal" options={{ headerShown: false }} />
         <Stack.Screen name='index' options={{ headerShown: false }} />
-        <Stack.Screen name='WelcomScreen' options={{ headerShown: false }} />
         <Stack.Screen name='(account)/Account' options={{ headerShown: false }} />
         <Stack.Screen name='(qr)/Qr' options={{ headerShown: false }} />
         <Stack.Screen name='Notifycations' options={{ headerShown: false }} />
@@ -64,8 +85,13 @@ function RootLayoutNav() {
         <Stack.Screen name='(transfer)/Transfers' options={{ headerShown: false }} />
         <Stack.Screen name='(deposit)/Deposites' options={{ headerShown: false }} />
         <Stack.Screen name='(withdraw)/Withdraws' options={{ headerShown: false }} />
-
+        <Stack.Screen name='(auth)/PassCodeV1' options={{ headerShown: false }} />
+        <Stack.Screen name='WelcomScreen' options={{ headerShown: false }} />
         <Stack.Screen name='Onboards' options={{ headerShown: false }} />
+        {/* auth */}
+        <Stack.Screen name='(auth)/Login' options={{ headerShown: false }} />
+        <Stack.Screen name='(auth)/Register' options={{ headerShown: false }} />
+
       </Stack>
     </ThemeProvider>
   );

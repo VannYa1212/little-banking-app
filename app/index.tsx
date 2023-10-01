@@ -10,7 +10,7 @@ import {
   ScrollView,
   TouchableHighlight,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, {
@@ -19,6 +19,7 @@ import Animated, {
   FadeInRight,
 } from "react-native-reanimated";
 import { useRouter } from "expo-router";
+import { getItem } from "../libs/storage";
 const index = () => {
   const router = useRouter();
   const { width, height } = Dimensions.get("window");
@@ -26,6 +27,15 @@ const index = () => {
   const ToggleEye = () => {
     setShowwallet(!showwallet);
   };
+
+  useEffect(() => {
+    getItem("token").then((res) => {
+      if (!res) {
+        router.push("/(auth)/Login");
+      }
+    });
+  }
+  , []);
 
   const feature = {
     roll1: [
@@ -59,7 +69,7 @@ const index = () => {
       {
         name: "Services",
         icon: require("../assets/images/Services.png"),
-        path: `/(service)/Service`,
+        path: `/(auth)/PassCodeV1`,
       },
     ],
   };
