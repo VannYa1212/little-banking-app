@@ -5,7 +5,6 @@ import { SplashScreen, Stack,useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 import { NativeWindStyleSheet } from "nativewind";
-import { setItem , getItem } from '../libs/storage';
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
@@ -19,7 +18,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '/Onboards',
+  initialRouteName: '/main',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -56,14 +55,6 @@ function RootLayoutNav() {
   const router = useRouter();
   // check if user not token in storage push to login
 
-  //  sync storage if user not token push to login
-  useEffect(() => {
-    getItem("token").then((res) => {
-      if (!res) {
-        router.push("/WelcomScreen");
-      }
-    });
-  }, []);
 
   useEffect(() => {
     if (colorScheme === 'dark') {
@@ -78,6 +69,7 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="modal" options={{ headerShown: false }} />
         <Stack.Screen name='index' options={{ headerShown: false }} />
+        <Stack.Screen name='main' options={{ headerShown: false }} />
         <Stack.Screen name='(account)/Account' options={{ headerShown: false }} />
         <Stack.Screen name='(qr)/Qr' options={{ headerShown: false }} />
         <Stack.Screen name='Notifycations' options={{ headerShown: false }} />

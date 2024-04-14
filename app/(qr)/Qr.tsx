@@ -12,8 +12,14 @@ import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import * as Haptics from "expo-haptics";
 const Qr = () => {
   const router = useRouter();
+  React.useEffect(() => {
+    setTimeout(() => {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    } , 200);
+  }, []);
   return (
     <View className="flex-1 bg-gray-900">
       <StatusBar style="light" />

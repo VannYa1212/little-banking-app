@@ -28,7 +28,7 @@ export default function ModalScreen() {
       >
         <View className="h-12 flex-row items-center bg-transparent justify-center relative px-5">
           <Pressable
-            onPress={() => router.push("/")}
+            onPress={() => router.back()}
             className="absolute left-2  p-2"
           >
             <Ionicons name="close-outline" size={28} color="white" />

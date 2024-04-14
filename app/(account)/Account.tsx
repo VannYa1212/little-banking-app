@@ -19,7 +19,7 @@ import BottomSheet, {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-
+import * as Haptics from 'expo-haptics';
 const Account = () => {
   const router = useRouter();
   const [showtransaction, setShowTransaction] = React.useState(false);
@@ -27,6 +27,12 @@ const Account = () => {
   const ShowTansactions = () => {
     setShowTransaction(true);
   };
+
+  React.useEffect(() => {
+    setTimeout(() => {
+    Haptics.selectionAsync();
+    } , 200);
+  }, []);
 
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
