@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Dimensions, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import { Easing } from 'react-native-reanimated';
 
-const { width, height } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'space', 0, 'delete'];
 const passcodeLength = 4;

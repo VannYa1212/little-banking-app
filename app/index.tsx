@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 import { Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native";
-import Animated, { FadeInLeft, FadeInRight, FadeOutRight } from "react-native-reanimated";
+import Animated, { FadeInLeft, FadeInRight } from "react-native-reanimated";
 const index = () => {
   const router = useRouter();
   React.useEffect(() => {
@@ -21,9 +21,7 @@ const index = () => {
         style={{ width: "100%", height: "100%", position: "absolute" }}
       />
       <SafeAreaView
-        className={` ${
-          Platform.OS === "ios" ? "pt-0" : "pt-10"
-        } relative flex-1`}
+        className={` ${ Platform.OS === "ios" ? "pt-0" : "pt-10" } relative flex-1`}
       >
         <View className="flex-1 flex-row flex items-center space-x-2 justify-center">
           <View className="flex flex-row space-x-2">

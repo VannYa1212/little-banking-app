@@ -14,7 +14,6 @@ import React, { useCallback, useMemo, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import Animated from "react-native-reanimated";
 import BottomSheet, {
   BottomSheetModal,
   BottomSheetModalProvider,
